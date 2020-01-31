@@ -34,13 +34,24 @@ RUN cd /usr/src  && \
     make prefix=/usr/local/git all  && \
     make prefix=/usr/local/git install
 
+# Downloading gcloud package
+RUN curl https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz > /tmp/google-cloud-sdk.tar.gz
+
+# Installing the package
+RUN mkdir -p /usr/local/gcloud \
+  && tar -C /usr/local/gcloud -xvf /tmp/google-cloud-sdk.tar.gz \
+  && /usr/local/gcloud/google-cloud-sdk/install.sh
+
+# Adding the package path to local
+ENV PATH $PATH:/usr/local/gcloud/google-cloud-sdk/bin
 # use a multi stage image so we don't include all the build tools above
 FROM centos:7
 # need to copy the whole git source else it doesn't clone the helm plugin repos below
 COPY --from=0 /usr/local/git /usr/local/git
 COPY --from=0 /out /usr/local/bin
+COPY --from=0 /usr/local/gcloud /usr/local/gcloud
 
-ENV PATH /usr/local/bin:/usr/local/git/bin:$PATH
+ENV PATH /usr/local/bin:/usr/local/git/bin:$PATH:/usr/local/gcloud/google-cloud-sdk/bin
 
 RUN helm plugin install https://github.com/databus23/helm-diff && \
     helm plugin install https://github.com/aslafy-z/helm-git.git
