@@ -55,3 +55,6 @@ ENV PATH /usr/local/bin:/usr/local/git/bin:$PATH:/usr/local/gcloud/google-cloud-
 
 RUN helm plugin install https://github.com/databus23/helm-diff && \
     helm plugin install https://github.com/aslafy-z/helm-git.git
+
+# hack copying in a clustom built jx from this PR as needed but not merged yet https://github.com/jenkins-x/jx/pull/6664
+COPY jx /usr/local/bin/jx
