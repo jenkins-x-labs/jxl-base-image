@@ -2,11 +2,6 @@ FROM centos:7
 
 RUN mkdir /out
 
-# jxl
-ENV JXL_VERSION 0.0.11
-RUN curl -f -L https://github.com/jenkins-x-labs/jxl/releases/download/v${JXL_VERSION}/jx-labs-linux-amd64.tar.gz | tar xzv && \
-  mv jx-labs /out/jxl
-
 # helmfile
 ENV HELMFILE_VERSION 0.98.2     
 RUN curl -LO https://github.com/roboll/helmfile/releases/download/v${HELMFILE_VERSION}/helmfile_linux_amd64 && \
@@ -45,6 +40,28 @@ RUN mkdir -p /usr/local/gcloud \
   /usr/local/gcloud/google-cloud-sdk/bin/gcloud components install beta && \
   /usr/local/gcloud/google-cloud-sdk/bin/gcloud components update
 
+# jxl
+ENV JXL_VERSION 0.0.11
+RUN curl -f -L https://github.com/jenkins-x-labs/jxl/releases/download/v${JXL_VERSION}/jx-labs-linux-amd64.tar.gz | tar xzv && \
+  mv jx-labs /out/jxl
+
+FROM golang:1.12.17
+
+RUN mkdir -p /go/src/github.com/jenkins-x-labs
+
+WORKDIR /go/src/github.com/jenkins-x-labs
+
+RUN git clone https://github.com/jenkins-x/bdd-jx.git && \
+  cd bdd-jx && \
+  make testbin && \
+  mv build/bddjx /out/bddjx
+
+RUN git clone https://github.com/jenkins-x/jx.git && \
+  cd jx && \
+  git checkout multicluster && \
+  make linux && \
+  mv build/jx /out/jx
+
 # Adding the package path to local
 ENV PATH $PATH:/usr/local/gcloud/google-cloud-sdk/bin
 
@@ -64,5 +81,5 @@ RUN helm plugin install https://github.com/databus23/helm-diff && \
     helm plugin install https://github.com/aslafy-z/helm-git.git
 
 # hack copying in a custom built bdd-jx and a custom jx from this PR as needed but not merged yet https://github.com/jenkins-x/jx/pull/6664
-COPY build/jx /usr/local/bin/jx
-COPY build/bddjx-linux /usr/local/bin/bddjx
+# COPY build/jx /usr/local/bin/jx
+# COPY build/bddjx-linux /usr/local/bin/bddjx
