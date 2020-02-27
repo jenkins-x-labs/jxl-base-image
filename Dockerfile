@@ -13,7 +13,7 @@ RUN curl -LO https://github.com/roboll/helmfile/releases/download/v${HELMFILE_VE
   chmod +x /out/helmfile
 
 # kubectl
-ENV KUBECTL_VERSION 1.17.0
+ENV KUBECTL_VERSION 1.16.0
 RUN curl -LO  https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl && \
   mv kubectl /out/kubectl && \
   chmod +x /out/kubectl
@@ -57,10 +57,11 @@ COPY --from=0 /usr/local/gcloud /usr/local/gcloud
 ENV PATH /usr/local/bin:/usr/local/git/bin:$PATH:/usr/local/gcloud/google-cloud-sdk/bin
 
 ENV HELM_PLUGINS /root/.cache/helm/plugins/
+ENV JX_HELM3 "true"
 
 RUN helm plugin install https://github.com/databus23/helm-diff && \
     helm plugin install https://github.com/aslafy-z/helm-git.git
 
 # hack copying in a clustom built jx from this PR as needed but not merged yet https://github.com/jenkins-x/jx/pull/6664
 COPY jx /usr/local/bin/jx
-COPY jx-experiments /usr/local/bin/jx-experiments
+COPY jxl /usr/local/bin/jxl
