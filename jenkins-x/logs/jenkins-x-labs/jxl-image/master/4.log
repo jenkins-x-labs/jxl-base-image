@@ -1,0 +1,39 @@
+
+Showing logs for build [32mmeta-jenkins-x-labs-jxl-image-m-ndhpj-4[0m stage [32mmeta-pipeline[0m and container [32mstep-credential-initializer-pqthr[0m
+{"level":"warn","ts":1582825327.473568,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1582825327.4743369,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mmeta-jenkins-x-labs-jxl-image-m-ndhpj-4[0m stage [32mmeta-pipeline[0m and container [32mstep-working-dir-initializer-p5nvb[0m
+{"level":"warn","ts":1582825328.8040245,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1582825328.8052967,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mmeta-jenkins-x-labs-jxl-image-m-ndhpj-4[0m stage [32mmeta-pipeline[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mmeta-jenkins-x-labs-jxl-image-m-ndhpj-4[0m stage [32mmeta-pipeline[0m and container [32mstep-git-source-meta-jenkins-x-labs-jxl-image-m-ndhpj-j728z[0m
+{"level":"warn","ts":1582825334.84606,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1582825335.8634045,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/jenkins-x-labs/**l-image.git @ 1406440140f7f9e955764e11f1967e92d6c3e71d in path /workspace/source"}
+
+Showing logs for build [32mmeta-jenkins-x-labs-jxl-image-m-ndhpj-4[0m stage [32mmeta-pipeline[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:1406440140f7f9e955764e11f1967e92d6c3e71d
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mmeta-jenkins-x-labs-jxl-image-m-ndhpj-4[0m stage [32mmeta-pipeline[0m and container [32mstep-merge-pull-refs[0m
+SKIP merge-pull-refs: Nothing to merge
+
+Showing logs for build [32mmeta-jenkins-x-labs-jxl-image-m-ndhpj-4[0m stage [32mmeta-pipeline[0m and container [32mstep-create-effective-pipeline[0m
+Effective pipeline written to jenkins-x-effective.yml
+
+Showing logs for build [32mmeta-jenkins-x-labs-jxl-image-m-ndhpj-4[0m stage [32mmeta-pipeline[0m and container [32mstep-create-tekton-crds[0m
+running command: ** step next-version --use-git-tag-only --tag
+created new version: 0.0.8 and written to file: ./VERSION
+error: Have you set up a git credential helper? See https://help.github.com/articles/caching-your-github-password-in-git/
+: git output: To https://github.com/jenkins-x-labs/**l-image.git
+ ! [rejected]        v0.0.8 -> v0.0.8 (already exists)
+error: failed to push some refs to 'https://github.com/jenkins-x-labs/**l-image.git'
+hint: Updates were rejected because the tag already exists in the remote.: failed to run 'git push origin v0.0.8' command in directory '', output: 'To https://github.com/jenkins-x-labs/**l-image.git
+ ! [rejected]        v0.0.8 -> v0.0.8 (already exists)
+error: failed to push some refs to 'https://github.com/jenkins-x-labs/**l-image.git'
+hint: Updates were rejected because the tag already exists in the remote.'
+error: failed to set the version on release pipelines: failed to run '/bin/sh -c ** step next-version --use-git-tag-only --tag' command in directory '/workspace/source', output: ''
+[31m
+Pipeline failed on stage 'meta-pipeline' : container 'step-create-tekton-crds'. The execution of the pipeline has stopped.[0m
