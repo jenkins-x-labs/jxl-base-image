@@ -41,9 +41,9 @@ RUN mkdir -p /usr/local/gcloud \
   /usr/local/gcloud/google-cloud-sdk/bin/gcloud components update
 
 # jxl
-ENV JXL_VERSION 0.0.11
+ENV JXL_VERSION 0.0.28
 RUN curl -f -L https://github.com/jenkins-x-labs/jxl/releases/download/v${JXL_VERSION}/jx-labs-linux-amd64.tar.gz | tar xzv && \
-  mv jx-labs /out/jxl
+  mv jxl /out/jxl
 
 FROM golang:1.12.17
 
