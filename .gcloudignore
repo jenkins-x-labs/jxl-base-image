@@ -1,0 +1,6 @@
+.idea
+.git
+jenkins-x.yml
+skaffold.yaml
+*.md
+build.sh
