@@ -47,6 +47,7 @@ RUN curl -f -L https://github.com/jenkins-x-labs/jxl/releases/download/v${JXL_VE
 
 FROM golang:1.12.17
 
+RUN mkdir /out
 RUN mkdir -p /go/src/github.com/jenkins-x-labs
 
 WORKDIR /go/src/github.com/jenkins-x-labs
@@ -60,7 +61,7 @@ RUN git clone https://github.com/jenkins-x/jx.git && \
   cd jx && \
   git checkout multicluster && \
   make linux && \
-  mv build/jx /out/jx
+  mv build/linux/jx /out/jx
 
 # Adding the package path to local
 ENV PATH $PATH:/usr/local/gcloud/google-cloud-sdk/bin
@@ -70,6 +71,7 @@ FROM centos:7
 # need to copy the whole git source else it doesn't clone the helm plugin repos below
 COPY --from=0 /usr/local/git /usr/local/git
 COPY --from=0 /out /usr/local/bin
+COPY --from=1 /out /usr/local/bin
 COPY --from=0 /usr/local/gcloud /usr/local/gcloud
 
 ENV PATH /usr/local/bin:/usr/local/git/bin:$PATH:/usr/local/gcloud/google-cloud-sdk/bin
