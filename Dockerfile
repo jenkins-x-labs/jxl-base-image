@@ -2,6 +2,11 @@ FROM centos:7
 
 RUN mkdir /out
 
+# jxl
+ENV JXL_VERSION 0.0.28
+RUN curl -f -L https://github.com/jenkins-x-labs/jxl/releases/download/v${JXL_VERSION}/jxl-linux-amd64.tar.gz | tar xzv && \
+  mv jxl /out/jxl
+
 # helmfile
 ENV HELMFILE_VERSION 0.98.2     
 RUN curl -LO https://github.com/roboll/helmfile/releases/download/v${HELMFILE_VERSION}/helmfile_linux_amd64 && \
@@ -39,11 +44,6 @@ RUN mkdir -p /usr/local/gcloud \
   && /usr/local/gcloud/google-cloud-sdk/install.sh && \
   /usr/local/gcloud/google-cloud-sdk/bin/gcloud components install beta && \
   /usr/local/gcloud/google-cloud-sdk/bin/gcloud components update
-
-# jxl
-ENV JXL_VERSION 0.0.28
-RUN curl -f -L https://github.com/jenkins-x-labs/jxl/releases/download/v${JXL_VERSION}/jx-labs-linux-amd64.tar.gz | tar xzv && \
-  mv jxl /out/jxl
 
 FROM golang:1.12.17
 
