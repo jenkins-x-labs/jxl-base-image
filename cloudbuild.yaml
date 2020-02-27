@@ -5,4 +5,4 @@ timeout: 3600s
 options:
   machineType: 'N1_HIGHCPU_8'
 images:
-- 'gcr.io/$PROJECT_ID/trigger-pipeline:v3'
+- 'gcr.io/$PROJECT_ID/jxl:0.0.1'

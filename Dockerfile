@@ -1,10 +1,11 @@
 FROM centos:7
 
 RUN mkdir /out
-# jx
-ENV JX_VERSION 2.0.1171
-RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv && \
-  mv jx /out/
+
+# jxl
+ENV JXL_VERSION 0.0.11
+RUN curl -f -L https://github.com/jenkins-x-labs/jxl/releases/download/v${JXL_VERSION}/jx-labs-linux-amd64.tar.gz | tar xzv && \
+  mv jx-labs /out/jxl
 
 # helmfile
 ENV HELMFILE_VERSION 0.98.2     
@@ -62,6 +63,6 @@ ENV JX_HELM3 "true"
 RUN helm plugin install https://github.com/databus23/helm-diff && \
     helm plugin install https://github.com/aslafy-z/helm-git.git
 
-# hack copying in a clustom built jx from this PR as needed but not merged yet https://github.com/jenkins-x/jx/pull/6664
-COPY jx /usr/local/bin/jx
-COPY jxl /usr/local/bin/jxl
+# hack copying in a custom built bdd-jx and a custom jx from this PR as needed but not merged yet https://github.com/jenkins-x/jx/pull/6664
+COPY build/jx /usr/local/bin/jx
+COPY build/bddjx-linux /usr/local/bin/bddjx
