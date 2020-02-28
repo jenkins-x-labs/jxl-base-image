@@ -3,7 +3,7 @@ FROM centos:7
 RUN mkdir /out
 
 # jxl
-ENV JXL_VERSION 0.0.29
+ENV JXL_VERSION 0.0.30
 RUN curl -f -L https://github.com/jenkins-x-labs/jxl/releases/download/v${JXL_VERSION}/jxl-linux-amd64.tar.gz | tar xzv && \
   mv jxl /out/jxl
 
