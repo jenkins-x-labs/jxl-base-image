@@ -2,4 +2,4 @@
 
 export PROJECT_ID="jenkinsxio-labs"
 
-gcloud builds submit --config cloudbuild.yaml
+gcloud builds submit --config cloudbuild.yaml --project $PROJECT_ID
