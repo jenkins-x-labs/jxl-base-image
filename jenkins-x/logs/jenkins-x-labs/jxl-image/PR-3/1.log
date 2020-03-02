@@ -1,0 +1,170 @@
+
+Showing logs for build [32mjenkins-x-labs-jxl-image-pr-3-p-htdq6-1[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-pkccr[0m
+{"level":"warn","ts":1583137372.0946681,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1583137372.0958936,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mjenkins-x-labs-jxl-image-pr-3-p-htdq6-1[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-qcch2[0m
+{"level":"warn","ts":1583137372.532985,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1583137372.5351498,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mjenkins-x-labs-jxl-image-pr-3-p-htdq6-1[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mjenkins-x-labs-jxl-image-pr-3-p-htdq6-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-jenkins-x-labs-jxl-image-pr-3-p-htdq6-s6d89[0m
+{"level":"warn","ts":1583137377.6294243,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1583137378.656987,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/jenkins-x-labs/**l-image.git @ master in path /workspace/source"}
+
+Showing logs for build [32mjenkins-x-labs-jxl-image-pr-3-p-htdq6-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:1406440140f7f9e955764e11f1967e92d6c3e71d,3:f32e591aa7d53289ff45cb021feb0e807eca3cc9
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git fetch origin --unshallow f32e591aa7d53289ff45cb021feb0e807eca3cc9: 1406440140f7f9e955764e11f1967e92d6c3e71d:
+DEBUG: ran git fetch --unshallow origin f32e591aa7d53289ff45cb021feb0e807eca3cc9: 1406440140f7f9e955764e11f1967e92d6c3e71d: in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git branch
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git checkout master
+DEBUG: ran git checkout master in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git reset --hard 1406440140f7f9e955764e11f1967e92d6c3e71d
+DEBUG: ran git reset --hard 1406440140f7f9e955764e11f1967e92d6c3e71d in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git clean -fd .
+DEBUG: ran clean --force -d . in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git merge f32e591aa7d53289ff45cb021feb0e807eca3cc9
+DEBUG: ran git merge f32e591aa7d53289ff45cb021feb0e807eca3cc9 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e 1406440140f7f9e955764e11f1967e92d6c3e71d..HEAD
+Merged SHA f32e591aa7d53289ff45cb021feb0e807eca3cc9 with commit message 'fix: switch to build a base image' into base branch master
+Merged SHA ea2ecaf20c239da033eefc12f3b1fe5d8a1a5a77 with commit message 'fix: upgrade **l' into base branch master
+Merged SHA 896b8db12a7792ad7d67c165510734d2399aa72b with commit message 'fix: upgrade **l' into base branch master
+
+Showing logs for build [32mjenkins-x-labs-jxl-image-pr-3-p-htdq6-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-skaffold-version[0m
+v1.0.1
+
+Showing logs for build [32mjenkins-x-labs-jxl-image-pr-3-p-htdq6-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+ERROR: logging before flag.Parse: E0302 08:23:04.279059      12 metadata.go:241] Failed to unmarshal scopes: invalid character 'h' looking for beginning of value
+[36mINFO[0m[0000] Downloading base image centos:7              
+ERROR: logging before flag.Parse: E0302 08:23:04.289365      12 metadata.go:142] while reading 'google-dockercfg' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg
+ERROR: logging before flag.Parse: E0302 08:23:04.373641      12 metadata.go:159] while reading 'google-dockercfg-url' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg-url
+2020/03/02 08:23:04 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0002] Error while retrieving image from cache: getting file info: stat /workspace/sha256:285bc3161133ec01d8ca8680cd746eecbfdbc1faa6313bd863151c4b26d7e5a5: no such file or directory 
+[36mINFO[0m[0002] Downloading base image centos:7              
+2020/03/02 08:23:05 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0003] Checking for cached layer gcr.io/*********-multicluster/cache:42485d51f6ce8ec7c3535adb12573d30057e57e23324a1080a8de7b8c5bb6fe2... 
+[36mINFO[0m[0004] Using caching version of cmd: RUN mkdir /out 
+[36mINFO[0m[0004] Checking for cached layer gcr.io/*********-multicluster/cache:30f9c147174a269bdcd47017f00bcdb5525c52065184eca0d73bc4cdfe4f2800... 
+[36mINFO[0m[0005] Using caching version of cmd: RUN curl -LO https://github.com/roboll/helmfile/releases/download/v${HELMFILE_VERSION}/helmfile_linux_amd64 &&   mv helmfile_linux_amd64 /out/helmfile &&   chmod +x /out/helmfile 
+[36mINFO[0m[0005] Checking for cached layer gcr.io/*********-multicluster/cache:244fca1de418ce2231e721d750f7ab110454971164a4cec91a4ef7d2587828ec... 
+[36mINFO[0m[0006] Using caching version of cmd: RUN curl -LO  https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl &&   mv kubectl /out/kubectl &&   chmod +x /out/kubectl 
+[36mINFO[0m[0006] Checking for cached layer gcr.io/*********-multicluster/cache:16b6b3a694176c0da2774e35cc5517d18959d9aed591905bde7e77fedefd81c4... 
+[36mINFO[0m[0006] Using caching version of cmd: RUN curl -f -L https://get.helm.sh/helm-v3.0.3-linux-386.tar.gz | tar xzv &&   mv linux-386/helm /out/ 
+[36mINFO[0m[0006] Checking for cached layer gcr.io/*********-multicluster/cache:63af7e035b7ece859604fcb7d822889be165afcaff627e57b8ba3b38f70911c7... 
+[36mINFO[0m[0007] Using caching version of cmd: RUN yum install -y curl-devel expat-devel gettext-devel openssl-devel zlib-devel &&     yum install -y gcc perl-ExtUtils-MakeMaker make 
+[36mINFO[0m[0007] Checking for cached layer gcr.io/*********-multicluster/cache:b70b0711558aa7ae91d54e638bbd765d2c1cd82cf454654fa818858729b8ad66... 
+[36mINFO[0m[0008] Using caching version of cmd: RUN cd /usr/src  &&     curl -LO https://www.kernel.org/pub/software/scm/git/git-${GIT_VERSION}.tar.gz  &&     tar xzf git-${GIT_VERSION}.tar.gz  &&     cd git-${GIT_VERSION} &&     make prefix=/usr/local/git all  &&     make prefix=/usr/local/git install 
+[36mINFO[0m[0008] Checking for cached layer gcr.io/*********-multicluster/cache:a3ca310ff502fd7b14636a5ae2800dd5c9d5595ba4b0bc8e1466547ce672a935... 
+[36mINFO[0m[0009] Using caching version of cmd: RUN curl https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz > /tmp/google-cloud-sdk.tar.gz 
+[36mINFO[0m[0009] Checking for cached layer gcr.io/*********-multicluster/cache:ddd3971cb93c7ae2809ba174bbe3c0382dbcf5445285b4383ca8543717c6c7f4... 
+[36mINFO[0m[0010] Using caching version of cmd: RUN mkdir -p /usr/local/gcloud   && tar -C /usr/local/gcloud -xvf /tmp/google-cloud-sdk.tar.gz   && /usr/local/gcloud/google-cloud-sdk/install.sh &&   /usr/local/gcloud/google-cloud-sdk/bin/gcloud components install beta &&   /usr/local/gcloud/google-cloud-sdk/bin/gcloud components update 
+[36mINFO[0m[0010] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0010] Taking snapshot of full filesystem...        
+[36mINFO[0m[0010] RUN mkdir /out                               
+[36mINFO[0m[0010] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0010] Taking snapshot of files...                  
+[36mINFO[0m[0010] ENV HELMFILE_VERSION 0.98.2                  
+[36mINFO[0m[0010] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0010] RUN curl -LO https://github.com/roboll/helmfile/releases/download/v${HELMFILE_VERSION}/helmfile_linux_amd64 &&   mv helmfile_linux_amd64 /out/helmfile &&   chmod +x /out/helmfile 
+[36mINFO[0m[0010] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0011] Taking snapshot of files...                  
+[36mINFO[0m[0012] ENV KUBECTL_VERSION 1.16.0                   
+[36mINFO[0m[0012] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0012] RUN curl -LO  https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl &&   mv kubectl /out/kubectl &&   chmod +x /out/kubectl 
+[36mINFO[0m[0012] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0014] Taking snapshot of files...                  
+[36mINFO[0m[0016] ENV HELM3_VERSION 3.0.3                      
+[36mINFO[0m[0016] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0016] RUN curl -f -L https://get.helm.sh/helm-v3.0.3-linux-386.tar.gz | tar xzv &&   mv linux-386/helm /out/ 
+[36mINFO[0m[0016] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0017] Taking snapshot of files...                  
+[36mINFO[0m[0018] ENV GIT_VERSION 2.21.1                       
+[36mINFO[0m[0018] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0018] RUN yum install -y curl-devel expat-devel gettext-devel openssl-devel zlib-devel &&     yum install -y gcc perl-ExtUtils-MakeMaker make 
+[36mINFO[0m[0018] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0027] Taking snapshot of files...                  
+[36mINFO[0m[0036] RUN cd /usr/src  &&     curl -LO https://www.kernel.org/pub/software/scm/git/git-${GIT_VERSION}.tar.gz  &&     tar xzf git-${GIT_VERSION}.tar.gz  &&     cd git-${GIT_VERSION} &&     make prefix=/usr/local/git all  &&     make prefix=/usr/local/git install 
+[36mINFO[0m[0036] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0048] Taking snapshot of files...                  
+[36mINFO[0m[0069] RUN curl https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz > /tmp/google-cloud-sdk.tar.gz 
+[36mINFO[0m[0069] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0071] Taking snapshot of files...                  
+[36mINFO[0m[0071] RUN mkdir -p /usr/local/gcloud   && tar -C /usr/local/gcloud -xvf /tmp/google-cloud-sdk.tar.gz   && /usr/local/gcloud/google-cloud-sdk/install.sh &&   /usr/local/gcloud/google-cloud-sdk/bin/gcloud components install beta &&   /usr/local/gcloud/google-cloud-sdk/bin/gcloud components update 
+[36mINFO[0m[0071] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0090] Taking snapshot of files...                  
+[36mINFO[0m[0112] Storing source image from stage 0 at path /kaniko/stages/0 
+[36mINFO[0m[0166] Deleting filesystem...                       
+[36mINFO[0m[0171] Downloading base image golang:1.12.17        
+ERROR: logging before flag.Parse: E0302 08:25:54.483503      12 metadata.go:142] while reading 'google-dockercfg' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg
+ERROR: logging before flag.Parse: E0302 08:25:54.485301      12 metadata.go:159] while reading 'google-dockercfg-url' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg-url
+2020/03/02 08:25:54 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0172] Error while retrieving image from cache: getting file info: stat /workspace/sha256:c489190d31e60400b94cd404e27bb5eec4c484ab606e5b5eff75707d5ec6a2aa: no such file or directory 
+[36mINFO[0m[0172] Downloading base image golang:1.12.17        
+2020/03/02 08:25:55 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0172] Checking for cached layer gcr.io/*********-multicluster/cache:cc682d9be93d972f1c26800911196de868ef4116efbfd184cdcf3783d59bc8bf... 
+[36mINFO[0m[0173] Using caching version of cmd: RUN mkdir /out 
+[36mINFO[0m[0173] Checking for cached layer gcr.io/*********-multicluster/cache:3567664a7cf8688179862493e0892f474963157030505d0779714f26c676d8d3... 
+[36mINFO[0m[0174] Using caching version of cmd: RUN mkdir -p /go/src/github.com/jenkins-x-labs 
+[36mINFO[0m[0174] Checking for cached layer gcr.io/*********-multicluster/cache:67f72d7a802b4174f22c0b194f096bc9beb605728ac58c3c9da911b8b4497dde... 
+[36mINFO[0m[0175] Using caching version of cmd: RUN git clone https://github.com/jenkins-x/bdd-**.git &&   cd bdd-** &&   make testbin &&   mv build/bdd** /out/bdd** 
+[36mINFO[0m[0175] Checking for cached layer gcr.io/*********-multicluster/cache:6d026df15d266f1c9def5cb71e6a80a459984b4090d548c385577699e78b5315... 
+[36mINFO[0m[0176] Using caching version of cmd: RUN git clone https://github.com/jenkins-x/**.git &&   cd ** &&   git checkout multicluster &&   make linux &&   mv build/linux/** /out/** 
+[36mINFO[0m[0176] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0176] Taking snapshot of full filesystem...        
+[36mINFO[0m[0184] RUN mkdir /out                               
+[36mINFO[0m[0184] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0185] Taking snapshot of files...                  
+[36mINFO[0m[0185] RUN mkdir -p /go/src/github.com/jenkins-x-labs 
+[36mINFO[0m[0185] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0185] Taking snapshot of files...                  
+[36mINFO[0m[0185] WORKDIR /go/src/github.com/jenkins-x-labs    
+[36mINFO[0m[0185] cmd: workdir                                 
+[36mINFO[0m[0185] Changed working directory to /go/src/github.com/jenkins-x-labs 
+[36mINFO[0m[0185] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0185] RUN git clone https://github.com/jenkins-x/bdd-**.git &&   cd bdd-** &&   make testbin &&   mv build/bdd** /out/bdd** 
+[36mINFO[0m[0185] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0407] Taking snapshot of files...                  
+[36mINFO[0m[0471] RUN git clone https://github.com/jenkins-x/**.git &&   cd ** &&   git checkout multicluster &&   make linux &&   mv build/linux/** /out/** 
+[36mINFO[0m[0471] Found cached layer, extracting to filesystem 
+[36mINFO[0m[0508] Taking snapshot of files...                  
+[36mINFO[0m[0616] ENV PATH $PATH:/usr/local/gcloud/google-cloud-sdk/bin 
+[36mINFO[0m[0616] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0616] Storing source image from stage 1 at path /kaniko/stages/1 
+[36mINFO[0m[1306] Deleting filesystem...                       
+[36mINFO[0m[1341] Downloading base image centos:7              
+ERROR: logging before flag.Parse: E0302 08:45:24.431571      12 metadata.go:142] while reading 'google-dockercfg' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg
+ERROR: logging before flag.Parse: E0302 08:45:24.433139      12 metadata.go:159] while reading 'google-dockercfg-url' metadata: http status code: 404 while fetching url http://metadata.google.internal./computeMetadata/v1/instance/attributes/google-dockercfg-url
+2020/03/02 08:45:24 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[1342] Error while retrieving image from cache: getting file info: stat /workspace/sha256:285bc3161133ec01d8ca8680cd746eecbfdbc1faa6313bd863151c4b26d7e5a5: no such file or directory 
+[36mINFO[0m[1342] Downloading base image centos:7              
+2020/03/02 08:45:25 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[1343] Checking for cached layer gcr.io/*********-multicluster/cache:4deb37dee87f8c82450f534270824491f2ff9c5153f9ef8bc68a31dcac8a216f... 
+[36mINFO[0m[1344] Using caching version of cmd: RUN helm plugin install https://github.com/databus23/helm-diff &&     helm plugin install https://github.com/aslafy-z/helm-git.git 
+[36mINFO[0m[1344] Skipping unpacking as no commands require it. 
+[36mINFO[0m[1344] Taking snapshot of full filesystem...        
+[36mINFO[0m[1344] COPY --from=0 /usr/local/git /usr/local/git  
+[36mINFO[0m[1359] Taking snapshot of files...                  
+[36mINFO[0m[1437] COPY --from=0 /out /usr/local/bin            
+[36mINFO[0m[1451] Taking snapshot of files...                  
+[36mINFO[0m[1461] COPY --from=1 /out /usr/local/bin            
+[36mINFO[0m[1484] Taking snapshot of files...                  
+[36mINFO[0m[1510] COPY --from=0 /usr/local/gcloud /usr/local/gcloud 
+[36mINFO[0m[2084] Taking snapshot of files...                  
+[36mINFO[0m[2151] ENV PATH /usr/local/bin:/usr/local/git/bin:$PATH:/usr/local/gcloud/google-cloud-sdk/bin 
+[36mINFO[0m[2151] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[2151] ENV HELM_PLUGINS /root/.cache/helm/plugins/  
+[36mINFO[0m[2151] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[2151] ENV JX_HELM3 "true"                          
+[36mINFO[0m[2151] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[2151] RUN helm plugin install https://github.com/databus23/helm-diff &&     helm plugin install https://github.com/aslafy-z/helm-git.git 
+[36mINFO[0m[2151] Found cached layer, extracting to filesystem 
+[36mINFO[0m[2158] Taking snapshot of files...                  
+2020/03/02 08:59:09 existing blob: sha256:ab5ef0e5819490abe86106fd9f4381123e37a03e80e650be39f7938d30ecb530
+2020/03/02 08:59:12 pushed blob: sha256:b1525f5889dbdba41bfff3eb1d9fdae648b4acb7f02f535ff0bc2318616f5a45
+2020/03/02 08:59:23 pushed blob: sha256:2c9123b3002e835b62477be159b26b152a09dc518279c4342fc7cc8a72aeaac6
+2020/03/02 08:59:30 pushed blob: sha256:217288dbf70bb6f3db5066d85710e1b5161c3111ccb02ae388be222994783a08
+2020/03/02 08:59:41 pushed blob: sha256:3284a531cdf65123d18460dd38587783d72f911feb49bb4e59d1d7b91e369ddb
+2020/03/02 09:00:00 pushed blob: sha256:e17ff9def182c7b95b6163f775fd93d45c53fdce71d2d206630ef8835b9fff44
+2020/03/02 09:01:13 pushed blob: sha256:9b9cb096493e4375c01477a98662a7a65194de4b2db45907ae2f0a672a146120
+2020/03/02 09:01:14 gcr.io/*********-multicluster/**l-image:0.0.0-SNAPSHOT-PR-3-1: digest: sha256:878dd04c9e9b8205fab80e55bd138465bbaf49594a53d2a035c9031ca8011e92 size: 1257
