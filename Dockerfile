@@ -2,11 +2,6 @@ FROM centos:7
 
 RUN mkdir /out
 
-# jxl
-ENV JXL_VERSION 0.0.28
-RUN curl -f -L https://github.com/jenkins-x-labs/jxl/releases/download/v${JXL_VERSION}/jxl-linux-amd64.tar.gz | tar xzv && \
-  mv jxl /out/jxl
-
 # helmfile
 ENV HELMFILE_VERSION 0.98.2     
 RUN curl -LO https://github.com/roboll/helmfile/releases/download/v${HELMFILE_VERSION}/helmfile_linux_amd64 && \
