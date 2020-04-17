@@ -15,9 +15,12 @@ RUN curl -LO  https://storage.googleapis.com/kubernetes-release/release/v${KUBEC
   chmod +x /out/kubectl
 
 # helm 3
-ENV HELM3_VERSION 3.0.3
-RUN curl -f -L https://get.helm.sh/helm-v3.0.3-linux-386.tar.gz | tar xzv && \
-  mv linux-386/helm /out/
+ENV HELM3_VERSION 3.1.2
+RUN curl -f -L https://get.helm.sh/helm-v${HELM3_VERSION}-linux-386.tar.gz | tar xzv && \
+  mv linux-386/helm /usr/local/bin/helm && \
+  mkdir -p $HOME/.jx/plugins/bin && \
+  ln -s /usr/local/bin/helm $HOME/.jx/plugins/bin/helm-${HELM3_VERSION}
+
 
 # git
 ENV GIT_VERSION 2.21.1
