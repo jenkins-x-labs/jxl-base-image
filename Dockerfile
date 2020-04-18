@@ -3,7 +3,7 @@ FROM centos:7
 RUN mkdir /out
 
 # helmfile
-ENV HELMFILE_VERSION 0.108.0
+ENV HELMFILE_VERSION 0.111.0
 RUN curl -LO https://github.com/roboll/helmfile/releases/download/v${HELMFILE_VERSION}/helmfile_linux_amd64 && \
   mv helmfile_linux_amd64 /out/helmfile && \
   chmod +x /out/helmfile
