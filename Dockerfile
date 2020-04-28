@@ -3,7 +3,7 @@ FROM centos:7
 RUN mkdir /out
 
 # helmfile
-ENV HELMFILE_VERSION 0.111.0
+ENV HELMFILE_VERSION 0.114.0
 RUN curl -LO https://github.com/roboll/helmfile/releases/download/v${HELMFILE_VERSION}/helmfile_linux_amd64 && \
   mv helmfile_linux_amd64 /out/helmfile && \
   chmod +x /out/helmfile
@@ -15,7 +15,7 @@ RUN curl -LO  https://storage.googleapis.com/kubernetes-release/release/v${KUBEC
   chmod +x /out/kubectl
 
 # helm 3
-ENV HELM3_VERSION 3.1.2
+ENV HELM3_VERSION 3.2.0
 RUN curl -f -L https://get.helm.sh/helm-v${HELM3_VERSION}-linux-386.tar.gz | tar xzv && \
   mv linux-386/helm /usr/local/bin/helm && \
   mkdir -p $HOME/.jx/plugins/bin && \
